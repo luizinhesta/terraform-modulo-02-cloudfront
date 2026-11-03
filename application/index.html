@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Landing page do Laboratório 02 do Terraform na Prática: S3 privado e CloudFront.">
+  <title>CloudNova | Infraestrutura como Código</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="nav">
+    <a class="logo" href="#topo">Cloud<span>Nova</span></a>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">&#9776;</button>
+    <nav id="menu" aria-label="Principal">
+      <a href="#beneficios">Benefícios</a>
+      <a href="#servicos">Serviços AWS</a>
+      <a href="#terraform">Terraform</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="topo">
+    <p class="tag">Laboratório 02 &middot; HTTPS com CloudFront</p>
+    <h1>Sua infraestrutura, escrita como código</h1>
+    <p>Este site está em um bucket S3 <strong>privado</strong>, entregue ao mundo por CloudFront e criado com Terraform.</p>
+    <a class="btn" href="#beneficios">Conhecer os benefícios</a>
+    <p class="status" id="status" role="status">Verificando conexão segura...</p>
+  </section>
+
+  <main>
+    <section id="beneficios" class="section">
+      <h2>Benefícios da infraestrutura como código</h2>
+      <div class="grid">
+        <article class="card"><h3>Repetibilidade</h3><p>O mesmo código cria o mesmo ambiente, quantas vezes for preciso.</p></article>
+        <article class="card"><h3>Revisão antes da mudança</h3><p>O <code>terraform plan</code> mostra o impacto antes de qualquer alteração.</p></article>
+        <article class="card"><h3>Histórico no Git</h3><p>Cada mudança de infraestrutura fica registrada e pode ser revisada.</p></article>
+      </div>
+    </section>
+
+    <section id="servicos" class="section alt">
+      <h2>Serviços AWS deste laboratório</h2>
+      <div class="grid">
+        <article class="card"><span class="icon">S3</span><h3>Amazon S3</h3><p>Armazena os arquivos do site em um bucket privado.</p></article>
+        <article class="card"><span class="icon">CF</span><h3>Amazon CloudFront</h3><p>Distribui o conteúdo por HTTPS com cache global.</p></article>
+        <article class="card"><span class="icon">OAC</span><h3>Origin Access Control</h3><p>Permite que apenas o CloudFront leia o bucket.</p></article>
+      </div>
+    </section>
+
+    <section id="terraform" class="section">
+      <h2>Sobre o Terraform</h2>
+      <p>
+        O Terraform descreve recursos em arquivos <code>.tf</code>, monta um grafo de dependências
+        e aplica as mudanças na ordem correta. Aqui, o bucket é criado primeiro, depois o CloudFront
+        e, por fim, a política que liga os dois.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">Terraform na Prática &middot; Etapa 1 &middot; Módulo 02</footer>
+</body>
+</html>

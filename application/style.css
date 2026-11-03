@@ -1,0 +1,74 @@
+:root {
+  --bg: #0b1020;
+  --bg2: #121a33;
+  --card: #18223f;
+  --texto: #e8ecff;
+  --suave: #9fb0e0;
+  --ciano: #d6ff08;
+  --azul: #f1d133;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--texto);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+}
+
+.nav {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.9rem 1.5rem;
+  background: rgba(11, 16, 32, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid #1f2a4d;
+}
+.logo { color: var(--texto); font-weight: 700; font-size: 1.3rem; text-decoration: none; }
+.logo span { color: var(--ciano); }
+nav a { color: var(--suave); text-decoration: none; margin-left: 1.4rem; }
+nav a:hover, nav a:focus { color: var(--ciano); }
+.menu-toggle { display: none; background: none; border: 1px solid #2a3869; color: var(--texto); font-size: 1.3rem; border-radius: 6px; padding: 0.2rem 0.6rem; cursor: pointer; }
+
+.hero {
+  text-align: center;
+  padding: 5rem 1.5rem 4rem;
+  background: radial-gradient(circle at 50% 0%, #1b2a66 0%, var(--bg) 70%);
+}
+.hero h1 { font-size: clamp(2rem, 6vw, 3.4rem); margin: 0.6rem auto; max-width: 40rem; }
+.hero p { max-width: 36rem; margin-left: auto; margin-right: auto; color: var(--suave); }
+.tag { color: var(--ciano) !important; font-weight: 600; letter-spacing: 0.05em; }
+
+.btn {
+  display: inline-block; margin-top: 1rem; padding: 0.8rem 1.6rem;
+  background: linear-gradient(90deg, var(--azul), var(--ciano));
+  color: #04101f; font-weight: 700; border-radius: 8px; text-decoration: none;
+}
+.status { margin-top: 1.5rem; font-size: 0.9rem; }
+
+main { max-width: 64rem; margin: 0 auto; padding: 0 1.5rem; }
+.section { padding: 3rem 0; }
+.section.alt { background: var(--bg2); margin: 0 -1.5rem; padding: 3rem 1.5rem; }
+h2 { font-size: 1.7rem; margin-top: 0; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+.card { background: var(--card); border: 1px solid #263566; border-radius: 12px; padding: 1.2rem; }
+.card h3 { margin-top: 0.4rem; }
+.card p { color: var(--suave); margin-bottom: 0; }
+.icon {
+  display: inline-block; min-width: 2.6rem; text-align: center; padding: 0.3rem 0.5rem;
+  background: rgba(34, 211, 238, 0.15); color: var(--ciano); border-radius: 8px; font-weight: 700; font-size: 0.85rem;
+}
+code { background: #0f1630; color: var(--ciano); padding: 0.1rem 0.4rem; border-radius: 4px; font-family: Consolas, monospace; }
+
+.footer { text-align: center; padding: 2rem 1rem; color: var(--suave); border-top: 1px solid #1f2a4d; font-size: 0.9rem; }
+
+@media (max-width: 640px) {
+  .menu-toggle { display: block; }
+  nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg2); padding: 0.5rem 1.5rem 1rem; }
+  nav.open { display: block; }
+  nav a { display: block; margin: 0.6rem 0; }
+}

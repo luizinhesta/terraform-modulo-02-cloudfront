@@ -1,31 +1,54 @@
-/vendor/
-node_modules/
-npm-debug.log
-yarn-error.log
+# ============================================================
+# .gitignore - Terraform na Pratica
+# Tudo aqui NAO deve ser enviado ao GitHub.
+# ============================================================
 
-# Laravel 4 specific
-bootstrap/compiled.php
-app/storage/
+# --- State do Terraform (contem ID da conta, ARNs, IDs de recursos) ---
+*.tfstate
+*.tfstate.*
+terraform.tfstate.d/
+.terraform.tfstate.lock.info
 
-# Laravel 5 & Lumen specific
-public/storage
-public/hot
+# --- Providers e modulos baixados pelo "terraform init" ---
+# O binario do provider AWS tem ~775 MB e o GitHub rejeita arquivos > 100 MB.
+.terraform/
 
-# Laravel 5 & Lumen specific with changed public path
-public_html/storage
-public_html/hot
+# --- Variaveis locais (podem conter dados pessoais ou segredos) ---
+# Os arquivos *.tfvars.example continuam sendo versionados.
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
 
-storage/*.key
+# --- Planos salvos (podem conter valores sensiveis) ---
+*.tfplan
+tfplan
+plan.out
+
+# --- Logs e dumps de erro ---
+crash.log
+crash.*.log
+
+# --- Overrides locais e configuracao da CLI ---
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# --- Credenciais e segredos ---
 .env
-Homestead.yaml
-Homestead.json
-/.vagrant
-.phpunit.result.cache
-/.phpunit.cache
+.env.*
+.aws/
+*.pem
+*.key
+*credentials*
+*.secret
 
-/public/build
-/storage/pail
-.env.backup
-.env.production
-.phpactor.json
-auth.json
+# --- Arquivos de sistema e editores ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Observacao: .terraform.lock.hcl DEVE ser versionado (trava a versao do provider).
